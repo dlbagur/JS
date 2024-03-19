@@ -20,12 +20,14 @@ const vinosEspumantesValor=['USD',22,18,12];
 
 // Identificar usuario
 let nombre = null
-while (nombre == null || nombre == '') {
-    nombre = prompt("Por favor ingrese su nombre: ");
-}
+nombre = prompt("Por favor ingrese su nombre: ");
 
 // Confirmar condiciones
-confirmar=confirm(nombre+', aceptas nuestros reglas y condiciones?');
+if (!(nombre == null || nombre == '')) {
+    confirmar=confirm(nombre+', aceptas nuestros reglas y condiciones?');
+} else {
+    confirmar = false;
+}
 
 // Ciclo de selección de Tipo de Vino y Botella
 if (confirmar) {
@@ -81,7 +83,7 @@ if (confirmar) {
                     contador = -1;
                     break;
                 default:
-                    alert('Introdujiste una opción no válida '+ tipoVinoElegido);
+                    alert('Introdujiste una opción no válida: '+ tipoVinoElegido);
                     break;
             }
             if (contador = 0) {
